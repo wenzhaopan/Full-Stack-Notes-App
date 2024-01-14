@@ -1,3 +1,20 @@
+The frontend for a full-stack notes app.
+![image](https://github.com/wenzhaopan/Full-Stack-Notes-App-Frontend/assets/140751736/a33b78c6-1b5a-42fb-a2e4-52c21980f5f8)
+Features:
+- User can press 'x' to delete note
+- Press on the note to edit the content
+- User can add new note
+
+In order to run the application, simply download both the frontend and backend parts. Make sure to run the backend with npm start first (this will start it on server port 5000). 
+Then, change your directory to the frontend and run the command "node start". This will start it on port 3000. 
+You can change the ports manually to your liking. 
+
+Read below to understand react projects more:
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
