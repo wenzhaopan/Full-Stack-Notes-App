@@ -1,5 +1,10 @@
 The frontend for a full-stack notes app.
+
+
 ![image](https://github.com/wenzhaopan/Full-Stack-Notes-App-Frontend/assets/140751736/a33b78c6-1b5a-42fb-a2e4-52c21980f5f8)
+
+
+
 Features:
 - User can press 'x' to delete note
 - Press on the note to edit the content
