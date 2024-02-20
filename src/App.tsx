@@ -17,7 +17,6 @@ const LoginPage = ({ onLogin }: { onLogin: () => void }) => {
   const handleLogin = () => {
     // Implement your authentication logic here
     // Make an HTTP POST request to your backend
-    alert(password);
     fetch('http://localhost:5000/login', {
       method: 'POST',
       headers: {
@@ -65,6 +64,7 @@ const App = () => {
   const [title, setTitle] = useState(""); // State for the title of a note
   const [content, setContent] = useState(""); // State for the content of a note
   const [selectedNote, setSelectedNote] = useState<Note | null>(null); // State for the currently selected note
+  const [secondPassword, setSecondPassword] = useState(""); // State to hold the second password
 
   // Effect to fetch notes from the server on component mount
   useEffect(() => {
@@ -100,6 +100,7 @@ const App = () => {
         body: JSON.stringify({
           title,
           content,
+          secondPassword, // Include the second password in the request body
         }), // Convert the note data to JSON and send it in the request body
       });
 
@@ -182,6 +183,7 @@ const App = () => {
   };
 
   // Render the app
+  // Render the app
   return (
     <div className="app-container">
       {!authenticated ? ( // If not authenticated, show the login page
@@ -207,6 +209,13 @@ const App = () => {
               rows={10}
               required
             ></textarea>
+            <input
+              type="password"
+              value={secondPassword}
+              onChange={(event) => setSecondPassword(event.target.value)}
+              placeholder="Enter second password"
+              required
+            ></input>
             {selectedNote ? ( // If a note is selected, show save and cancel buttons
               <div className="edit-buttons">
                 <button type="submit">Save</button>
