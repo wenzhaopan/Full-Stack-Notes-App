@@ -16,11 +16,29 @@ const LoginPage = ({ onLogin }: { onLogin: () => void }) => {
   // Function to handle the login attempt
   const handleLogin = () => {
     // Implement your authentication logic here
-    if (password === "NotesAppPassword") { // Check if the password is correct
-      onLogin(); // Call the onLogin function if the password is correct
-    } else {
-      alert("Incorrect password. Please try again."); // Show an alert for an incorrect password
-    }
+    // Make an HTTP POST request to your backend
+    alert(password);
+    fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify({ password }), // Pass the password in the request body
+    })
+    .then(response => {
+      if (response.ok) {
+        // If the response is OK, call the onLogin function
+        onLogin();
+      } else {
+        // If there's an error, show an alert
+        alert("Incorrect password, try again");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert("An error occurred. Please try again later.");
+    });
   };
 
   // Render the login form
